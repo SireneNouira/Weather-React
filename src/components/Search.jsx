@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../styles/Search.css";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -45,20 +46,20 @@ const Search = ({ setCity }) => {
   };
 
   return (
-    <>
+    <article className="search-container">
       <button className="location-btn" onClick={handleLocation}>
         📍 Utiliser ma localisation
       </button>
-      <form onSubmit={handleSearch}>
+      <form className="search-form" onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Entrez une ville..."
           value={inputCity}
           onChange={(e) => setInputCity(e.target.value)}
         />
-        <button type="submit">Rechercher</button>
+        <button className="search-btn" type="submit">Rechercher</button>
       </form>
-    </>
+      </article>
   );
 };
 
