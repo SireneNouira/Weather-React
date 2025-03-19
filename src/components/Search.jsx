@@ -20,7 +20,9 @@ const Search = ({ setCity }) => {
             `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${latitude},${longitude}`
           );
           if (response.data.length > 0) {
-            setCity(response.data[0].name);
+            const locationName = response.data[0].name;
+            setCity(locationName);
+            localStorage.setItem("savedCity", locationName); // Sauvegarder la localisation dans le localStorage
           } else {
             alert("Localisation non trouvée.");
           }
@@ -37,6 +39,8 @@ const Search = ({ setCity }) => {
     if (inputCity.trim()) {
       setCity(inputCity);
       setInputCity("");
+      localStorage.setItem("savedCity", inputCity); 
+      
     }
   };
 

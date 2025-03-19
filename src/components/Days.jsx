@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/Days.css";
-import axios from "axios";
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
-
-const Days = ({ city }) => {
+const Days = ({ forecast }) => {
   const [selectedDay, setSelectedDay] = useState(0);
-  const [forecast, setForecast] = useState([]);
 
   // Fonction pour formater la date en jour de la semaine
   const formatDate = (dateString) => {
@@ -15,31 +11,13 @@ const Days = ({ city }) => {
     return date.toLocaleDateString("fr-FR", options); // Formater en jour de la semaine en français
   };
 
-  useEffect(() => {
-    const fetchForecast = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`
-        );
-        setForecast(response.data.forecast.forecastday);
-      } catch (error) {
-        console.error("Erreur de chargement des prévisions météo", error);
-      }
-    };
-
-    fetchForecast();
-  }, [city]);
-
   return (
     <div className="days-container">
       {forecast.map((day, index) => (
         <button
           key={index}
-          className={`day-button ${index === selectedDay ? "selected" : ""}`} 
-          onClick={() => {
-            setSelectedDay(index);
-           
-          }}
+          className={`day-button ${index === selectedDay ? "selected" : ""}`}
+          onClick={() => setSelectedDay(index)}
         >
           {formatDate(day.date)}
         </button>
