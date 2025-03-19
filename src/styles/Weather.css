@@ -1,0 +1,26 @@
+.weather-card {
+  background: #0b0829;
+  width: 100%;
+  border-radius: 10px 10px 0 0 ;
+  display: inline-block;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  min-width: fit-content;
+}
+.card-title {
+  font-size: 5rem;
+  text-shadow: -1px 0 #61dafb, 0 1px #61dafb, 1px 0 #61dafb, 0 -1px #61dafb;
+}
+
+.temperature {
+  font-size: 5rem;
+  font-family: "Roboto", sans-serif;
+  text-shadow: -1px 0 #61dafb, 0 1px #61dafb, 1px 0 #61dafb, 0 -1px #61dafb;
+}
+
+.link {
+  color: #61dafb;
+}
+.wind{
+    padding-top: 2rem;
+}

@@ -1,0 +1,36 @@
+
+.days-container {
+  background-color: #0b0829;
+  border-radius: 0 0 10px 10px;
+  padding-bottom: 2rem;
+}
+
+.day-button {
+  margin: 1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1c3f49;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.days-container .selected {
+  font-weight: bold;
+  color: rgb(0, 18, 99);
+}
+.day-button:hover {
+  color: #051e25;
+}
+
+.day-details{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #1c3f49;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  
+}
