@@ -7,7 +7,6 @@ const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const Weather = ({ city }) => {
   const [weather, setWeather] = useState(null);
-  // const [forecast, setForecast] = useState([]);
 
   // Fonction pour récupérer la météo actuelle et les prévisions pour days
   useEffect(() => {
@@ -17,11 +16,6 @@ const Weather = ({ city }) => {
           `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`
         );
         setWeather(currentResponse.data);
-
-        // const forecastResponse = await axios.get(
-        //   `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`
-        // );
-        // setForecast(forecastResponse.data.forecast.forecastday);
       } catch (error) {
         console.error("Erreur de chargement des données météo", error);
       }
@@ -44,10 +38,6 @@ const Weather = ({ city }) => {
         </p>
         <span className="temperature">{weather.current.temp_c}°C</span>
         <div className="wind">Vent: {weather.current.wind_kph} km/h</div>
-
-        {/* Composant Days pour afficher les 5 jours */}
-
-        {/* <Days forecast={forecast} /> */}
       </div>
  
   );
