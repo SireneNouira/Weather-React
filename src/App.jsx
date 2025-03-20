@@ -15,7 +15,9 @@ const App = () => {
   });
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
+  const [selectedDay, setSelectedDay] = useState(0);
   const [loading, setLoading] = useState(true);
+  
 
   // Fonction pour récupérer la météo actuelle et les prévisions pour 5 jours
   useEffect(() => {
@@ -28,6 +30,7 @@ const App = () => {
         // Stocker les données actuelles et les prévisions
         setWeather(response.data);
         setForecast(response.data.forecast.forecastday);
+        setSelectedDay(0);
         setLoading(false);
       } catch (error) {
         console.error("Erreur de chargement des données météo", error);
@@ -45,8 +48,8 @@ const App = () => {
       <Header />
       <article className="weather-container">
         <Search setCity={setCity} />
-        <Weather weather={weather} />
-        <Days forecast={forecast} />
+        <Weather weather={weather} selectedWeather={forecast[selectedDay]} />
+        <Days forecast={forecast} selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
       </article>
     </div>
   );

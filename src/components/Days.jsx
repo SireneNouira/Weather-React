@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "../styles/Days.css";
 
-const Days = ({ forecast }) => {
-  const [selectedDay, setSelectedDay] = useState(0);
-
+const Days = ({  forecast, selectedDay, setSelectedDay }) => {
   // Fonction pour formater la date en jour de la semaine
   const formatDate = (dateString) => {
     const date = new Date(dateString); // Crée un objet Date
