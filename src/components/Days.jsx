@@ -29,6 +29,10 @@ const Days = ({ forecast }) => {
             Détails du jour:{" "}
             {new Date(forecast[selectedDay].date).toLocaleDateString()}
           </h3>
+          <img className="icon-day"
+            src={`https:${forecast[selectedDay].day.condition.icon}`}
+            alt={forecast[selectedDay].day.condition.text}
+          />
           <p>{forecast[selectedDay].day.condition.text}</p>
           <p>Temp min: {forecast[selectedDay].day.mintemp_c}°C</p>
           <p>Temp max: {forecast[selectedDay].day.maxtemp_c}°C</p>
